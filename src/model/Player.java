@@ -3,22 +3,25 @@ package model;
 import java.util.Date;
 
 public class Player {
-    private String cpf;
+    private int cpf;
     private String name;
     private Date dateOfBirth;
-    private enum gender {
-        MALE, FEMALE
-    }
+    private Enum<Gender> gender;
     private double weight;
     private double height;
     private String emails[];
     private String phones[];
     private String positions[];
 
-    public Player(String cpf, String name, Date dateOfBirth, double weight, double height, String[] emails, String[] phones, String[] positions) {
+    private enum Gender {
+        MALE, FEMALE
+    };
+
+    public Player(int cpf, String name, Date dateOfBirth, Enum<Gender> gender, double weight, double height, String[] emails, String[] phones, String[] positions) {
         this.cpf = cpf;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
         this.weight = weight;
         this.height = height;
         this.emails = emails;
@@ -26,11 +29,11 @@ public class Player {
         this.positions = positions;
     }
 
-    public String getCpf() {
+    public Integer getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(Integer cpf) {
         this.cpf = cpf;
     }
 
@@ -88,5 +91,13 @@ public class Player {
 
     public void setPositions(String[] positions) {
         this.positions = positions;
+    }
+
+    public Enum<Gender> getGender() {
+        return gender;
+    }
+
+    public void setGender(Enum<Gender> gender) {
+        this.gender = gender;
     }
 }
