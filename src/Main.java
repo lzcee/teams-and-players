@@ -1,12 +1,14 @@
 import dao.PlayerDAO;
 import dao.TeamDAO;
 import view.PlayerView;
+import view.TeamView;
 
 import java.util.Scanner;
 
 public class Main {
     private PlayerDAO playerDAO = new PlayerDAO();
     private PlayerView playerView = new PlayerView();
+    private TeamView TeamView = new TeamView();
     private TeamDAO teamDAO = new TeamDAO();
 
     public int submenuOptions() {
@@ -47,7 +49,23 @@ public class Main {
 
     public void teamsMenu() {
         int option = submenuOptions();
-
+        switch (option) {
+            case 1:
+                playerView.ListAllTeams(teamDAO);
+                break;
+            case 2:
+                playerView.ListOneTeam(teamDAO);
+                break;
+            case 3:
+                playerView.AddTeam(teamDAO);
+                break;
+            case 4:
+                playerView.UpdateTeam(playerDAO);
+                break;
+            case 5:
+                playerView.DeleteTeam(playerDAO);
+                break;
+        }
     }
 
     public int mainMenu() {
@@ -59,6 +77,7 @@ public class Main {
         System.out.println("Enter an option:");
         Scanner read = new Scanner(System.in);
         option = read.nextInt();
+        read.close();
         return option;
     }
 

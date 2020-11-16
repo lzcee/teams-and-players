@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
+
 
 public class Player {
     private String cpf;
