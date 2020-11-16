@@ -6,10 +6,10 @@ import view.TeamView;
 import java.util.Scanner;
 
 public class Main {
-    private PlayerDAO playerDAO = new PlayerDAO();
-    private PlayerView playerView = new PlayerView();
-    private TeamView teamView = new TeamView();
-    private TeamDAO teamDAO = new TeamDAO();
+    private PlayerDAO playerDAO;
+    private PlayerView playerView;
+    private TeamView teamView;
+    private TeamDAO teamDAO;
 
     public int submenuOptions() {
         int option;
@@ -77,23 +77,31 @@ public class Main {
         System.out.println("Enter an option:");
         Scanner read = new Scanner(System.in);
         option = read.nextInt();
-        read.close();
         return option;
     }
 
     public static void main(String[] args) {
         Main main = new Main();
-        int option = main.mainMenu();
-        switch (option) {
-            case 1:
-                main.playersMenu();
-                break;
-            case 2:
-                main.teamsMenu();
-                break;
-            case 3:
-                System.exit(0);
-                break;
+        main.playerDAO = new PlayerDAO();
+        main.playerView = new PlayerView();
+        main.teamDAO = new TeamDAO();
+        main.teamView = new TeamView();
+
+        Boolean running = true;
+        while (running) {
+            int option = main.mainMenu();
+            switch (option) {
+                case 1:
+                    main.playersMenu();
+                    break;
+                case 2:
+                    main.teamsMenu();
+                    break;
+                case 3:
+                    running = false;
+                    System.exit(0);
+                    break;
+            }
         }
     }
 }

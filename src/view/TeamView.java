@@ -185,7 +185,7 @@ public class TeamView {
         System.out.println("====== LIST ALL ======");
         if(iterator.hasNext()) {
             while (iterator.hasNext()) {
-                iterator.next().toString();
+                System.out.println(iterator.next().toString());
             }
         } else {
             System.out.println("No teams found.");
@@ -199,7 +199,7 @@ public class TeamView {
         insertCode(team);
         team = teamDAO.getTeam(team.getCode());
         if (team != null) {
-            team.toString();
+            System.out.println(team.toString());
         } else {
             System.out.println("Team not found.");
         }
