@@ -2,7 +2,6 @@ package model;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
 
 public class Team {
     private int code;
@@ -15,22 +14,6 @@ public class Team {
     private String state;
     private String phones[];
     private String founders[];
-    // private List<Player> players;
-
-    // public Team(int code, String name, LocalDate dateOfFundation, String address, String addressNumber, String cep,
-    //         String city, String state, String[] phones, String[] founders, List<Player> players) {
-    //     this.code = code;
-    //     this.name = name;
-    //     this.dateOfFundation = dateOfFundation;
-    //     this.address = address;
-    //     this.addressNumber = addressNumber;
-    //     this.cep = cep;
-    //     this.city = city;
-    //     this.state = state;
-    //     this.phones = phones;
-    //     this.founders = founders;
-    //     // this.players = players;
-    // }
 
     public int getCode() {
         return code;
@@ -127,12 +110,4 @@ public class Team {
                 ", founders=" + Arrays.toString(founders) +
                 '}';
     }
-
-    // public List<Player> getPlayers() {
-    //     return players;
-    // }
-
-    // public void setPlayers(List<Player> players) {
-    //     this.players = players;
-    // }
 }
