@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     private PlayerDAO playerDAO = new PlayerDAO();
     private PlayerView playerView = new PlayerView();
-    private TeamView TeamView = new TeamView();
+    private TeamView teamView = new TeamView();
     private TeamDAO teamDAO = new TeamDAO();
 
     public int submenuOptions() {
@@ -51,19 +51,19 @@ public class Main {
         int option = submenuOptions();
         switch (option) {
             case 1:
-                playerView.ListAllTeams(teamDAO);
+                teamView.listAllTeams(teamDAO);
                 break;
             case 2:
-                playerView.ListOneTeam(teamDAO);
+                teamView.listOneTeam(teamDAO);
                 break;
             case 3:
-                playerView.AddTeam(teamDAO);
+                teamView.addTeam(teamDAO);
                 break;
             case 4:
-                playerView.UpdateTeam(playerDAO);
+                teamView.updateTeam(teamDAO);
                 break;
             case 5:
-                playerView.DeleteTeam(playerDAO);
+                teamView.deleteTeam(teamDAO);
                 break;
         }
     }

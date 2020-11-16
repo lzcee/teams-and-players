@@ -160,7 +160,7 @@ public class TeamView {
         }
     }
 
-    public void AddPlayer(TeamDAO teamDAO) {
+    public void addTeam(TeamDAO teamDAO) {
         Team team = new Team();
 
         System.out.println("====== ADD ======");
@@ -183,7 +183,7 @@ public class TeamView {
         };
     }
 
-    public void ListAllPlayers(TeamDAO teamDAO) {
+    public void listAllTeams(TeamDAO teamDAO) {
         Collection<Team> teams  = teamDAO.getTeams();
         Iterator<Team> iterator = teams.iterator();
 
@@ -197,7 +197,7 @@ public class TeamView {
         }
     }
 
-    public void ListOnePlayers(TeamDAO teamDAO) {
+    public void listOneTeam(TeamDAO teamDAO) {
         Team team = new Team();
 
         System.out.println("====== LIST ONE ======");
@@ -210,7 +210,7 @@ public class TeamView {
         }
     }
 
-    public void UpdatePlayer(TeamDAO DAO) {
+    public void updateTeam(TeamDAO DAO) {
         Team team = new Team();
 
         System.out.println("===== UPDATE =====");
@@ -234,7 +234,7 @@ public class TeamView {
         };
     }
 
-    public void DeleteTeam(TeamDAO TeamDAO) {
+    public void deleteTeam(TeamDAO TeamDAO) {
         Team team = new Team();
 
         System.out.println("===== DELETE =====");
