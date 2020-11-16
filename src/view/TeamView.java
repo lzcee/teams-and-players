@@ -1,8 +1,4 @@
 package view;
-
-import br.com.caelum.stella.format.CPFFormatter;
-import br.com.caelum.stella.format.Formatter;
-import br.com.caelum.stella.validation.CPFValidator;
 import dao.TeamDAO;
 import model.Team;
 
@@ -11,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Scanner;
 
 public class TeamView {
