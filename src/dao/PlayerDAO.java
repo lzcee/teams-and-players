@@ -1,14 +1,14 @@
 package dao;
 
-
 import model.Player;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class PlayerDAO {
-    private Map<Integer, Player> players;
+    private Map<String, Player> players;
 
     public PlayerDAO() {
         players = new HashMap<>();
@@ -32,7 +32,7 @@ public class PlayerDAO {
         }
     }
 
-    public Boolean delete(Integer cpf) {
+    public Boolean delete(String cpf) {
         if (players.containsKey(cpf)) {
             players.remove(cpf);
             return true;
@@ -45,7 +45,7 @@ public class PlayerDAO {
         return players.values();
     }
 
-    public Player getPlayer(Integer cpf) {
+    public Player getPlayer(String cpf) {
         return players.get(cpf);
     }
 }

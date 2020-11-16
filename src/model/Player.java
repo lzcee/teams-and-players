@@ -1,11 +1,13 @@
 package model;
 
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Player {
-    private int cpf;
+    private String cpf;
     private String name;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private Enum<Gender> gender;
     private double weight;
     private double height;
@@ -17,23 +19,11 @@ public class Player {
         MALE, FEMALE
     };
 
-    public Player(int cpf, String name, Date dateOfBirth, Enum<Gender> gender, double weight, double height, String[] emails, String[] phones, String[] positions) {
-        this.cpf = cpf;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.weight = weight;
-        this.height = height;
-        this.emails = emails;
-        this.phones = phones;
-        this.positions = positions;
-    }
-
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -45,11 +35,11 @@ public class Player {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -93,11 +83,30 @@ public class Player {
         this.positions = positions;
     }
 
-    public Enum<Gender> getGender() {
-        return gender;
+    public String getGender() {
+        return gender.toString();
     }
 
-    public void setGender(Enum<Gender> gender) {
-        this.gender = gender;
+    public void setGender(String gender) {
+        if(gender.equalsIgnoreCase("male")) {
+            this.gender = Gender.MALE;
+        } else if (gender.equalsIgnoreCase("female")) {
+            this.gender = Gender.FEMALE;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "cpf='" + cpf + '\'' +
+                ", name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender=" + gender +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", emails=" + Arrays.toString(emails) +
+                ", phones=" + Arrays.toString(phones) +
+                ", positions=" + Arrays.toString(positions) +
+                '}';
     }
 }
