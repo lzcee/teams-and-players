@@ -1,34 +1,19 @@
 package model;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Team {
     private int code;
     private String name;
-    private Date dateOfFundation;
+    private LocalDate dateOfFundation;
     private String address;
-    private int addressNumber;
+    private String addressNumber;
     private String cep;
     private String city;
     private String state;
     private String phones[];
     private String founders[];
-    private List<Player> players;
-
-    public Team(int code, String name, Date dateOfFundation, String address, int addressNumber, String cep, String city, String state, String[] phones, String[] founders, List<Player> players) {
-        this.code = code;
-        this.name = name;
-        this.dateOfFundation = dateOfFundation;
-        this.address = address;
-        this.addressNumber = addressNumber;
-        this.cep = cep;
-        this.city = city;
-        this.state = state;
-        this.phones = phones;
-        this.founders = founders;
-        this.players = players;
-    }
 
     public int getCode() {
         return code;
@@ -46,11 +31,11 @@ public class Team {
         this.name = name;
     }
 
-    public Date getDateOfFundation() {
+    public LocalDate getDateOfFundation() {
         return dateOfFundation;
     }
 
-    public void setDateOfFundation(Date dateOfFundation) {
+    public void setDateOfFundation(LocalDate dateOfFundation) {
         this.dateOfFundation = dateOfFundation;
     }
 
@@ -62,12 +47,12 @@ public class Team {
         this.address = address;
     }
 
-    public int getAddressNumber() {
+    public String getAddressNumber() {
         return addressNumber;
     }
 
-    public void setAddressNumber(int addressNumber) {
-        this.addressNumber = addressNumber;
+    public void setAddressNumber(String addressNumber2) {
+        this.addressNumber = addressNumber2;
     }
 
     public String getCep() {
@@ -110,11 +95,19 @@ public class Team {
         this.founders = founders;
     }
 
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(List<Player> players) {
-        this.players = players;
+    @Override
+    public String toString() {
+        return "Team{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", dateOfFundation=" + dateOfFundation +
+                ", address=" + address +
+                ", addressNumber=" + addressNumber +
+                ", cep=" + cep +
+                ", state=" + state +
+                ", city=" + city +
+                ", phones=" + Arrays.toString(phones) +
+                ", founders=" + Arrays.toString(founders) +
+                '}';
     }
 }

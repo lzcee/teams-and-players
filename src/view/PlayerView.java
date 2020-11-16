@@ -199,7 +199,7 @@ public class PlayerView {
         System.out.println("====== LIST ALL ======");
         if(iterator.hasNext()) {
             while (iterator.hasNext()) {
-                iterator.next().toString();
+                System.out.println(iterator.next().toString());
             }
         } else {
             System.out.println("No players found.");
@@ -213,7 +213,7 @@ public class PlayerView {
         insertCpf(player);
         player = playerDAO.getPlayer(player.getCpf());
         if (player != null) {
-            player.toString();
+            System.out.println(player.toString());
         } else {
             System.out.println("Player not found.");
         }

@@ -1,13 +1,15 @@
 import dao.PlayerDAO;
 import dao.TeamDAO;
 import view.PlayerView;
+import view.TeamView;
 
 import java.util.Scanner;
 
 public class Main {
-    private PlayerDAO playerDAO = new PlayerDAO();
-    private PlayerView playerView = new PlayerView();
-    private TeamDAO teamDAO = new TeamDAO();
+    private PlayerDAO playerDAO;
+    private PlayerView playerView;
+    private TeamView teamView;
+    private TeamDAO teamDAO;
 
     public int submenuOptions() {
         int option;
@@ -47,7 +49,23 @@ public class Main {
 
     public void teamsMenu() {
         int option = submenuOptions();
-
+        switch (option) {
+            case 1:
+                teamView.listAllTeams(teamDAO);
+                break;
+            case 2:
+                teamView.listOneTeam(teamDAO);
+                break;
+            case 3:
+                teamView.addTeam(teamDAO);
+                break;
+            case 4:
+                teamView.updateTeam(teamDAO);
+                break;
+            case 5:
+                teamView.deleteTeam(teamDAO);
+                break;
+        }
     }
 
     public int mainMenu() {
@@ -64,17 +82,26 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
-        int option = main.mainMenu();
-        switch (option) {
-            case 1:
-                main.playersMenu();
-                break;
-            case 2:
-                main.teamsMenu();
-                break;
-            case 3:
-                System.exit(0);
-                break;
+        main.playerDAO = new PlayerDAO();
+        main.playerView = new PlayerView();
+        main.teamDAO = new TeamDAO();
+        main.teamView = new TeamView();
+
+        Boolean running = true;
+        while (running) {
+            int option = main.mainMenu();
+            switch (option) {
+                case 1:
+                    main.playersMenu();
+                    break;
+                case 2:
+                    main.teamsMenu();
+                    break;
+                case 3:
+                    running = false;
+                    System.exit(0);
+                    break;
+            }
         }
     }
 }

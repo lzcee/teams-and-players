@@ -6,13 +6,13 @@ import java.util.*;
 
 
 public class TeamDAO {
-    private Map<Integer, Team> teams;
+    private static Map<Integer, Team> teams;
 
     public TeamDAO() {
         teams = new HashMap<>();
     }
 
-    public Boolean insert(Team team) {
+    public static Boolean insert(Team team) {
         if (teams.containsKey(team.getCode())) {
             return false;
         } else {
@@ -21,7 +21,7 @@ public class TeamDAO {
         }
     }
 
-    public Boolean update(Team team) {
+    public static Boolean update(Team team) {
         if (teams.containsKey(team.getCode())) {
             teams.replace(team.getCode(),team);
             return true;
