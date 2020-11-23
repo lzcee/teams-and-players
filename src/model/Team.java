@@ -15,6 +15,22 @@ public class Team {
     private String phones[];
     private String founders[];
 
+    public Team() {
+    }
+
+    public Team(int code, String name, LocalDate dateOfFundation, String address, String addressNumber, String cep, String city, String state, String[] phones, String[] founders) {
+        this.code = code;
+        this.name = name;
+        this.dateOfFundation = dateOfFundation;
+        this.address = address;
+        this.addressNumber = addressNumber;
+        this.cep = cep;
+        this.city = city;
+        this.state = state;
+        this.phones = phones;
+        this.founders = founders;
+    }
+
     public int getCode() {
         return code;
     }
