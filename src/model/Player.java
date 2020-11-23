@@ -15,7 +15,22 @@ public class Player {
     private String phones[];
     private String positions[];
 
-    private enum Gender {
+    public Player() {
+    }
+
+    public Player(String cpf, String name, LocalDate dateOfBirth, Enum<Gender> gender, double weight, double height, String[] emails, String[] phones, String[] positions) {
+        this.cpf = cpf;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.weight = weight;
+        this.height = height;
+        this.emails = emails;
+        this.phones = phones;
+        this.positions = positions;
+    }
+
+    public enum Gender {
         MALE, FEMALE
     };
 
