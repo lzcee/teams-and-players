@@ -96,7 +96,7 @@ public class TeamDAOTest {
                 () -> assertEquals(newTeam.getCity(), updatedTeam.getCity()),
                 () -> assertEquals(newTeam.getState(), updatedTeam.getState()),
                 () -> assertArrayEquals(newTeam.getPhones(), updatedTeam.getPhones()),
-                () -> assertArrayEquals(newTeam.getFounders(), neupdatedTeamwTeam.getFounders())
+                () -> assertArrayEquals(newTeam.getFounders(), updatedTeam.getFounders())
         );
     }
 
@@ -151,7 +151,7 @@ public class TeamDAOTest {
             new String[]{"3356-5236","98854-6325"},
             new String[]{"Gilberto Brutus"}
         );
-        Map<String,Team> teamsList = new HashMap<>();
+        Map<Integer,Team> teamsList = new HashMap<>();
         teamsList.put(1, team1);
         teamsList.put(2, team2);
 
