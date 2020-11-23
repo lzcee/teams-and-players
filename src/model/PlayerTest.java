@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -182,5 +183,13 @@ public class PlayerTest {
     void setGender(String gender) {
         player.setGender(gender);
         assertEquals(gender,player.getGender());
+    }
+
+    @DisplayName("[SET - Wrong] Date of Birth Test")
+    @Order(19)
+    @ParameterizedTest
+    @ValueSource(strings = {"blablabla", "1234124234"})
+    public void testWrongDateOfBirth(String date) throws DateTimeParseException {
+        assertThrows(DateTimeParseException.class, () -> player.setDateOfBirth(LocalDate.parse(date, DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
     }
 }
